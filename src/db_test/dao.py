@@ -25,7 +25,7 @@ class UserDAO(Base):
     fullName = Column(String)
     password = Column(String)
     
-    address = relationship("Address", order_by = "Address.id", backref = "users")
+    address = relationship("AddressDAO", order_by = "AddressDAO.id", backref = "users")
     
     def __init__(self, name, fullName, password):
         self.name = name
@@ -35,7 +35,7 @@ class UserDAO(Base):
     def __repr__(self):
         return "<User( \"%s\" \"%s\" \"%s\" )>" % ( self.name, self.fullName, self.password )
 
-class Address(Base):
+class AddressDAO(Base):
     __tablename__ = "address"
     id = Column( Integer, primary_key = True )
     email = Column( String )
@@ -47,4 +47,4 @@ class Address(Base):
         self.email = email
         
     def __repr__(self):
-        return "<Address = \"%s\" >" % ( self.email )
+        return "<AddressDAO = \"%s\" >" % ( self.email )

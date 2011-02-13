@@ -4,8 +4,8 @@ Created on Feb 8, 2011
 @author: kashim
 '''
 
-from sqlalchemy.orm import mapper
-from db_test.dao import UserDAO, Address
+from sqlalchemy.orm import mapper, joinedload
+from db_test.dao import UserDAO, AddressDAO
 from db_test.dm_my import DbMainTest
     
 
@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     i = 1
     queryUsr = sess.query(UserDAO).order_by(UserDAO.name)
-    queryAddress = sess.query(Address).order_by( Address.email )
+    queryAddress = sess.query(AddressDAO).order_by( AddressDAO.email )
     print "count of users = " +  str(queryUsr.count())
     print "count of addresses = " + str(queryAddress.count())
     for val in queryUsr:
@@ -30,3 +30,25 @@ if __name__ == '__main__':
         
     print queryUsr.first().address
     print queryAddress.all()
+
+    queryTotal = sess.query( UserDAO ).options( joinedload( "address" ) ).all()
+    print "queryTotal to run"
+    print queryTotal
+
+    queryJoin = sess.query(UserDAO, AddressDAO).filter( AddressDAO.user_id == UserDAO.id ).filter( AddressDAO.email == "mail@secret.com" )
+
+    print "queryJoin to run"
+    i = 0
+    for u, a in queryJoin.all():
+        print "User - %s \nAddress - %s" % (u ,a)
+        i = i + 1
+        print i
+
+    queryJoin2 = sess.query(UserDAO).join(AddressDAO).filter( AddressDAO.email == "mail@secret.com" )
+#    queryJoin2 = sess.query(UserDAO, AddressDAO).filter( AddressDAO.user_id == UserDAO.id ).filter( AddressDAO.email == "mail@secret.com" )
+    print "queryJoin2 to run"
+    i = 0
+    for u in queryJoin2.all():
+        print "User - %s \nAddress - %s" % (u, 12)
+        i = i + 1
+        print i

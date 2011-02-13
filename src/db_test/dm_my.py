@@ -7,7 +7,7 @@ Created on Feb 11, 2011
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from dao import Base
-from db_test.dao import UserDAO, Address
+from db_test.dao import UserDAO, AddressDAO
 
 class DbMainTest:
     __engine = None
@@ -42,8 +42,8 @@ class DbMainTest:
         test = UserDAO("name", "Cool Full Name", "Password")
         test2 = UserDAO( "second", "Second Name", "pass" )
         test3 = UserDAO( "first", "First Name", "111pass" )
-        test.address = [ Address( "top@secret.com" ), Address( "sercret@top.com" ) ]
-        test2.address = [ Address( "mail@secret.com" ), Address( "mail@top.com" ) ]
+        test.address = [ AddressDAO( "top@secret.com" ), AddressDAO( "sercret@top.com" ) ]
+        test2.address = [ AddressDAO( "mail@secret.com" ), AddressDAO( "mail@top.com" ) ]
 
         currSession = self.getNewSession()
         currSession.add_all( [test, test2, test3] )
