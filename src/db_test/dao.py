@@ -25,7 +25,7 @@ class UserDAO(Base):
     fullName = Column(String)
     password = Column(String)
     
-    address = relationship("AddressDAO", order_by = "AddressDAO.id", backref = "users")
+    address = relationship("AddressDAO", order_by = "AddressDAO.id", backref = "users", cascade = "all, delete, delete-orphan" )
     
     def __init__(self, name, fullName, password):
         self.name = name
@@ -33,7 +33,7 @@ class UserDAO(Base):
         self.password = password
     
     def __repr__(self):
-        return "<User( \"%s\" \"%s\" \"%s\" )>" % ( self.name, self.fullName, self.password )
+        return "<User( \"%s\"  \"%s\" \"%s\" \"%s\" )>" % ( self.id, self.name, self.fullName, self.password )
 
 class AddressDAO(Base):
     __tablename__ = "address"
@@ -47,4 +47,4 @@ class AddressDAO(Base):
         self.email = email
         
     def __repr__(self):
-        return "<AddressDAO = \"%s\" >" % ( self.email )
+        return "<AddressDAO> - email = \"%s\"; user_id = \"%s\"" % ( self.email, self.user_id )
