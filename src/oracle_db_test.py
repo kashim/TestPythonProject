@@ -15,7 +15,19 @@ if __name__ == '__main__':
     print dir(sess)
     sess.current_schema = "access_panel"
    
-    queryAllData = sess.query( ProcCallLog )
-
+    qryAllData = sess.query( ProcCallLog ).order_by( ProcCallLog.callDate.desc() )
     print "Tatal record count"
-    print queryAllData.count()
+    print qryAllData.count()
+    print "limit test"
+    i = 0
+    for rec in qryAllData[1:5]:
+        print "iteration num = " + str(i)
+        print rec
+        i = i + 1
+    
+#NLS_LANG="AMERICAN_AMERICA.CL8MSWIN1251"
+#     
+#    print os.environ["DYLD_LIBRARY_PATH" ]
+#    con = cx_Oracle.connect('access_panel/1@62.149.9.103:1521/XE')
+#    print con.version
+##    con.close()

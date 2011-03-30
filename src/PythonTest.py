@@ -3,7 +3,7 @@ import sys
 import types
 import __builtin__
 from pprint import pprint as pp
-import work_utils.SIPUserGeneration
+from work_utils import SIPUserGeneration
 import ClassTest
 from test_array import testMod
 
@@ -68,23 +68,23 @@ def procClassTest():
     print clTest["test"]
 
 if __name__ == "__main__":
-    print testMod.testFunc( "My Caption" )
-    print testMod.testFunc.__doc__
-    print sys.path
-
-    n = 4
-    if n >= 5:
-        print n
-    else:
-        print "n is less then 5"
-
-    
-    procMapTest()
-    procListTest()
-    procStringTest()
-    procTupleTest()
-    procBuiltInTest()
-    procClassTest()
-#    SIPUserGeneration.generateRangeUser(7900, 7999)
-    print pp(sys.path)
+#    print testMod.testFunc( "My Caption" )
+#    print testMod.testFunc.__doc__
+#    print sys.path
+#
+#    n = 4
+#    if n >= 5:
+#        print n
+#    else:
+#        print "n is less then 5"
+#
+#    
+#    procMapTest()
+#    procListTest()
+#    procStringTest()
+#    procTupleTest()
+#    procBuiltInTest()
+#    procClassTest()
+    SIPUserGeneration.generateRangeUser(447, 450)
+#    print pp(sys.path)
     

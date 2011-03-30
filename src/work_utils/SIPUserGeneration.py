@@ -13,9 +13,10 @@ def generateSIPUser(userNum):
     print "username=asip" + str( userNum )
     print "dtmfmode=rfc2833"
     print "disallow=all"
-    print "allow=ulaw"
-    print "context=default"
+    print "allow=gsm"
+    print "context=default_sip"
     print "callerid=" + str( userNum )
+    print ""
 
 def generateRangeUser(startNum, endNum):
     for i in range( startNum, endNum + 1 ):

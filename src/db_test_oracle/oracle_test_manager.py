@@ -24,7 +24,7 @@ class OracleTestManager(object):
     
     def initEngine(self):
 #        oracle://user:pass@host:port/dbname[?key=value&key=value...]
-        self.__engine = create_engine('oracle://ap_user:1@62.149.9.103:1521/XE', echo=True)
+        self.__engine = create_engine('oracle://access_panel:1@62.149.9.103:1521/XE', echo=True)
         
         return 
     def getEngine(self):
