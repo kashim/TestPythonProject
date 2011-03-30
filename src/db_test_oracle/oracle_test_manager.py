@@ -5,7 +5,6 @@ Created on Mar 13, 2011
 '''
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from dao import Base
 
 class OracleTestManager(object):
     __engine = None
