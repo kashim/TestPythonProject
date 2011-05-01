@@ -14,7 +14,7 @@ if __name__ == '__main__':
     
     for rec in qryPlace.all():
         print repr( rec );
-        print ""
+#        print ""
     
     sess.close()
     print "session closed"

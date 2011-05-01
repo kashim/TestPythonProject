@@ -17,7 +17,7 @@ class MySQLTestManager(object):
     
     def initEngine(self):
         #mysql+mysqldb://<user>:<password>@<host>[:<port>]/<dbname>
-        self.__engine = create_engine('mysql+mysqldb://remote_root:123123@192.168.56.101:3306/tel_number', echo=True)
+        self.__engine = create_engine('mysql+mysqldb://aster_user:123123@localhost:3306/tel_number', echo=True)
         
         return 
     def getEngine(self):
