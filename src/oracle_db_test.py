@@ -11,10 +11,14 @@ if __name__ == '__main__':
     myDBTester = OracleTestManager()
     myDBTester.createInitialDB()
     sess = myDBTester.getNewSession()
-    print sess
+#    print sess
 #    print dir(sess)
-    sess.current_schema = "access_panel"
-   
+#    print sess.current_schema
+#    sess. current_schema = "access_panel"
+    print "Orcale Schema Name"
+    for obj in sess:
+        print obj
+#    print get_attribute(sess, 'current_schema')
     qryAllData = sess.query( ProcCallLog ).order_by( ProcCallLog.callDate.desc() )
     print "Tatal record count"
     print qryAllData.count()

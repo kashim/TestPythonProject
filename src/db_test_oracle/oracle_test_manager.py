@@ -6,8 +6,10 @@ Created on Mar 13, 2011
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+
 class OracleTestManager(object):
     __engine = None
+    __current_schema = "access_panel"
 
     def initData(self):
 #        Base.metadata.create_all( self.getEngine() )
@@ -23,8 +25,8 @@ class OracleTestManager(object):
     
     def initEngine(self):
 #        oracle://user:pass@host:port/dbname[?key=value&key=value...]
-        self.__engine = create_engine('oracle://access_panel:1@62.149.9.103:1521/XE', echo=True)
-        
+        self.__engine = create_engine('oracle://ap_user:1@62.149.9.103:1521/XE', echo=True)
+
         return 
     def getEngine(self):
         if self.__engine is None:
@@ -33,6 +35,9 @@ class OracleTestManager(object):
         return self.__engine
     
     def getNewSession(self):
+        sess = self.__Session()
+        sess.execute( "alter session set current_schema=" + self.__current_schema )
+        sess.commit()
         return self.__Session()
     
     def createInitialDB(self):

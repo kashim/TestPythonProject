@@ -8,11 +8,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
 
 Base = declarative_base()
-SCHEMA_NAME = "access_panel"
-
 
 class ProcCallLog(Base):
     __tablename__ = "proc_call_log"
+    __schema__ = "access_panel"
     
     proc_call_log_id = Column( Integer, primary_key=True )
     procName = Column( "proc_name", String )
