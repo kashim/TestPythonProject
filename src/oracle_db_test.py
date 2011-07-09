@@ -12,7 +12,7 @@ if __name__ == '__main__':
     myDBTester.createInitialDB()
     sess = myDBTester.getNewSession()
     print sess
-    print dir(sess)
+#    print dir(sess)
     sess.current_schema = "access_panel"
    
     qryAllData = sess.query( ProcCallLog ).order_by( ProcCallLog.callDate.desc() )

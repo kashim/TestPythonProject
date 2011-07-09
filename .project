@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>TestPythoProject</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.python.pydev.PyDevBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.python.pydev.pythonNature</nature>
+	</natures>
+	<variableList>
+		<variable>
+			<name>DYLD_LIBRARY_PATH</name>
+			<value>file:/Users/kashim/Library/Oracle/instantclient_10_2</value>
+		</variable>
+		<variable>
+			<name>LD_LIBRARY_PATH</name>
+			<value>file:/Users/kashim/Library/Oracle/instantclient_10_2</value>
+		</variable>
+		<variable>
+			<name>ORACLE_HOME</name>
+			<value>file:/Users/kashim/Library/Oracle/instantclient_10_2</value>
+		</variable>
+	</variableList>
+</projectDescription>
